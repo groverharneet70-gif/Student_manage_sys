@@ -1,0 +1,35 @@
+{
+  "students": [
+    {
+      "name": "Iyra",
+      "rollNumber": "SMS-5678-543",
+      "email": "iyragrover@gmail.com",
+      "phone": "567-9876",
+      "gender": "Female",
+      "dob": "1998-09-26",
+      "course": "computer science",
+      "year": "2nd Year",
+      "address": "india",
+      "profileImage": "",
+      "status": "Active",
+      "enrollmentDate": "2026-07-11",
+      "id": "0AM9kc19dJk"
+    },
+    {
+      "name": "hargun",
+      "rollNumber": "SMS-5679-555",
+      "email": "hargun34@gmail.com",
+      "phone": "56887644",
+      "gender": "Female",
+      "dob": "1990-06-05",
+      "course": "mechanical engg",
+      "year": "1st Year",
+      "address": "new delhi",
+      "profileImage": "",
+      "status": "Active",
+      "enrollmentDate": "2026-07-11",
+      "id": "GzPyXrbWJYI"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
