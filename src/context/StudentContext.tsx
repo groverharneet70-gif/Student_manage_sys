@@ -3,7 +3,7 @@ import type { Student, StudentContextType, ToastType, ActivityType } from '../ty
 
 const StudentContext = createContext<StudentContextType | undefined>(undefined);
 
-const API_URL = 'http://localhost:5000/students';
+const API_URL = 'https://student-management-system-gxaj.onrender.com/students';
 
 export const StudentProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [students, setStudents] = useState<Student[]>([]);
