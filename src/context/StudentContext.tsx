@@ -3,7 +3,10 @@ import type { Student, StudentContextType, ToastType, ActivityType } from '../ty
 
 const StudentContext = createContext<StudentContextType | undefined>(undefined);
 
-const API_URL = 'https://student-management-system-gxaj.onrender.com/students';
+const GET_API = "http://localhost/student-api/getStudents.php";
+const ADD_API = "http://localhost/student-api/addStudent.php";
+const UPDATE_API = "http://localhost/student-api/updateStudent.php";
+const DELETE_API = "http://localhost/student-api/deleteStudent.php";
 
 export const StudentProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [students, setStudents] = useState<Student[]>([]);
@@ -50,7 +53,7 @@ export const StudentProvider: React.FC<{ children: React.ReactNode }> = ({ child
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(API_URL);
+      const response = await fetch(GET_API);
       if (!response.ok) {
         throw new Error('Failed to fetch student data from API');
       }
@@ -114,7 +117,7 @@ export const StudentProvider: React.FC<{ children: React.ReactNode }> = ({ child
         enrollmentDate: new Date().toISOString().split('T')[0]
       };
 
-      const response = await fetch(API_URL, {
+      const response = await fetch(ADD_API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newStudent)
@@ -155,7 +158,7 @@ export const StudentProvider: React.FC<{ children: React.ReactNode }> = ({ child
         enrollmentDate
       };
 
-      const response = await fetch(`${API_URL}/${id}`, {
+      const response = await fetch(`${UPDATE_API}/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(fullPayload)
@@ -181,7 +184,7 @@ export const StudentProvider: React.FC<{ children: React.ReactNode }> = ({ child
     const studentToDelete = students.find(s => s.id === id);
     const studentName = studentToDelete ? studentToDelete.name : 'Student';
     try {
-      const response = await fetch(`${API_URL}/${id}`, {
+      const response = await fetch(`${DELETE_API}/${id}`, {
         method: 'DELETE'
       });
 
